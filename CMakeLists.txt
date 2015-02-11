@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 2.8.4)
+project(fntp)
+find_package (Threads)
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Werror")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/bin")
+set(SOURCE_FILES main.c lib.c socket.c server.c client.c)
+add_executable(fntp ${SOURCE_FILES})
+target_link_libraries (fntp ${CMAKE_THREAD_LIBS_INIT})
