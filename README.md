@@ -3,19 +3,19 @@ FNTP is a combination of TCP and UDP as a mixed transport layer protocol. The ba
 Using this combination of TCP and UDP it makes possible to transfer all data faster using UDP and stay informed about sent data using reliable TCP.
 
 #Protocol Implementation
- Let's consider the case when client sends 1000 byte data to server.
-In client-side, FNTP creates TCP package where first 4 byte is generated random ID (for the connection) and next 4 bytes are length of sending data (i.e. 1000 byte). 
+Let's consider the case when client sends 1000 bytes data to server.
+In client-side, FNTP creates TCP package where first 4 byte is generated random ID (for the connection) and next 4 bytes are length of sending data (i.e. 1000 bytes). 
  
 Then FNTP creates  packages with 108 length, where first 4 byte is generated ID, next 4 bytes are the number (index) of package, the rest 100 bytes are sending data.
 
 When server response that it is ready to recieve the data, client sends packages via UDP protocol. Client sends the packages untill the server get the packages with all indexes for a given ID. After getting all the packages server send to client, signal (TCP package), to stop the sending of data. 
 
- The server sorting all the packages by index for a given ID.
+The server sorting all the packages by index for a given ID.
 
 
 #Usage 
 <b>With main.C one can test file transfer between client and server via FNTP protocol.<b>
-<b>client side</b>
+<b>Client-side</b>
 ```c
 void receive (BYTE *data, int len)
 {
@@ -30,7 +30,7 @@ fntpClient *client = CreateFntpClient("192.168.107.33", 8888);
                 FntpClientConnect(client);
 ```
 
-<b>Server side</b>
+<b>Server-side</b>
 ```c
 void receiveS (BYTE *data, int len, fntpSocket *s)
 {
