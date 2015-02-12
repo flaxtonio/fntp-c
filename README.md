@@ -20,6 +20,7 @@ When server response that it is ready to recieve the data, client sends packages
 <img src="http://flaxton.io/img/fntp/4.jpg" />
 #Usage 
 <b>With main.c one can test file transfer between client and server via FNTP protocol.<b>
+
 <b>Client-side</b>
 ```c
 void receive (BYTE *data, int len)
