@@ -5,7 +5,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define POCKET_LENGTH 100
+#define POCKET_LENGTH 400
 #define UdpPocketLength (POCKET_LENGTH + 8)
 #define BYTE char
 #define BOOL unsigned int

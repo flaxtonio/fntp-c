@@ -340,7 +340,7 @@ void fntp_send(fntpSocket *sock, BYTE *data, int len)
             }
             fntp_write_udp(sock, m->DataStack[i].value, UdpPocketLength);
         }
-        usleep(100);
+        usleep(5);
     }
     meta_delete_key(&sock->DataOut, m->DataId);
     sock->DataOut = NULL;
