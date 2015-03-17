@@ -1,21 +1,21 @@
 #About Protocol
-FNTP is a combination of TCP and UDP as a mixed transport layer protocol. The base  thing is that TCP works slow than UDP but it's reliable and the base idea of Flaxton FNTP protocol is to combine TCP reliable future and UDP speed together.
-Using this combination of TCP and UDP it makes possible to transfer all data faster using UDP and stay informed about sent data using reliable TCP.
+FNTP is a combination of TCP and UDP as a mixed transport layer protocol. TCP works slower than UDP but it's reliable and the basic idea of Flaxton FNTP protocol is to combine TCP reliability feature and UDP speed together.
+Using this combination of TCP and UDP makes it possible to transfer all the data faster using UDP and be informed about the sent data using reliable TCP.
 
 #Protocol Implementation
 Let's consider the case when client sends 1000 bytes data to server.
-In client-side, FNTP creates TCP package where first 4 byte is generated random ID (for the connection) and next 4 bytes are length of sending data (i.e. 1000 bytes). 
+In client-side FNTP creates TCP package where the first 4 bytes contain the generated random ID (for the connection) and the next 4 bytes contain the length of sending data (i.e. 1000 bytes). 
 <img src="http://flaxton.io/img/fntp/1.jpg" />
  
-Then FNTP creates  packages with 108 length, where first 4 byte is generated ID, next 4 bytes are the number (index) of package, the rest 100 bytes are sending data.
+Then FNTP creates packages with 108 length, where the first 4 bytes contain the generated ID, next 4 bytes contain the number (index) of package, the rest 100 bytes are the sending data.
 
 <img src="http://flaxton.io/img/fntp/2.jpg" />
 
-When server response that it is ready to recieve the data, client sends packages via UDP protocol. Client sends the packages untill the server get the packages with all indexes for a given ID. After getting all the packages server send to client, signal (TCP package), to stop the sending of data. 
+When server responses that it is ready to recieve the data, the client sends packages via UDP protocol. The client sends the packages untill the server gets the packages with all indexes for the given ID. After getting all the packages the server sends to client a signal (TCP package) to stop the sending of data. 
 <img src="http://flaxton.io/img/fntp/3.jpg" />
 
 
-<b>The server sorting all the packages by index for a given ID.</b>
+<b>The server sorts all the packages by indexes for given ID.</b>
 
 <img src="http://flaxton.io/img/fntp/4.jpg" />
 #Usage 
@@ -56,4 +56,4 @@ fntpServer *server = CreateFntpServer("0.0.0.0", 8888, 1024);
                 FntpServerListen(server);
 ```
 
-<b>For further details contact us tigran@flaxton.io</b>
+<b>For further details don't hesitate to contact us tigran@flaxton.io</b>
